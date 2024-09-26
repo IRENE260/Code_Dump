@@ -1,0 +1,89 @@
+import java.util.*;
+
+class Square extends Thread
+
+{
+
+ Square(int y)
+
+ {
+
+ System.out.println("Square of " + y+ " = " + (y*y) );
+
+ }
+
+}
+
+class Cube extends Thread
+
+{
+
+ Cube(int x)
+
+ {
+
+ System.out.println("Cube of " + x + " = " + (x*x*x) );
+
+ }
+
+}
+
+class number extends Thread
+
+{
+
+ public void run()
+
+ {
+
+  Random sc = new Random();
+
+  for(int i =0; i<5; i++) {
+
+   int r = random.nextInt(100);
+
+    System.out.println("Random Integer generated : " + r);
+
+   if(r%2==0){
+
+    Square s = new Square(r);
+
+   }
+
+   else{
+
+    Cube c = new Cube(r);
+
+   }
+
+   try {
+
+    Thread.sleep(1000);
+
+   } 
+
+   catch (InterruptedException ex) {
+
+    System.out.println(ex);
+
+   }
+
+  }
+
+ }
+
+}
+
+public class Main {
+
+ public static void main(String args[])
+
+ {
+
+  number n = new number();
+
+  n.start();
+
+ }
+
+}
